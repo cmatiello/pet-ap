@@ -1,23 +1,28 @@
-<div class="bloco">
-  <div class="titulo">
-    <h2>Tutor:</h2>
-    <p><%= @pet.tutor %></p>
-  </div>
-    <div class="titulo">
-    <h2>Phone:</h2>
-    <p><%= @pet.phone %></p>
-  </div>
-    <div class="titulo">
-    <h2>Breed:</h2>
-    <p><%= @pet.breed %></p>
-  </div>
-   <div class="titulo">
-    <h2>Size:</h2>
-    <p><%= @pet.size %></p>
-  </div>
-   <div class="titulo">
-    <h2>Description:</h2>
-    <p><%= @pet.description %></p>
+<div class="container-fluid show">
+  <div class="col-10">
+      <div class="card">
+        <div class="card-header">
+          Pet
+        </div>
+        <div class="card-body">
+          <div class="card-title">
+            Tutor:
+            <%= @pet.tutor %>
+          </div>
+          <div class="card-text">
+            Phone: <%= @pet.phone %>
+            <br>
+            Breed: <%= @pet.breed %>
+            <br>
+            Size: <%= @pet.size %>
+            <br>
+            Description: <%= @pet.description %>
+          </div>
+          <div class="form-buttons">
+            <%= link_to 'Back', pets_path, class: "btn btn-secondary" %>
+          </div>
+        </div>
+    </div>
+
   </div>
 </div>
-<%= link_to 'Back', pets_path %>

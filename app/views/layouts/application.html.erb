@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>PetAp</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>PetAp</title>
+  <%= csrf_meta_tags %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <%= link_to 'Pet-Ap', pets_path %>
+  </nav>
+  <%= yield %>
+  <footer>
+    <div class="footer-text">
+      <span>Rails Girls 2019</span>
+    </div>
+  </footer>
+</body>
+
 </html>

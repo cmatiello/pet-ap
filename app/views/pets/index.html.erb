@@ -1,23 +1,29 @@
-<h1>Listing pets</h1>
- <% @pets.each do |pet| %> 
+<div class="container-fluid">
+  <div class="col-10">
 
-    <div class="bloco">
-      <div class="titulo">
-        <h1>Breed</h1>
-        <p><%= pet.breed %></p>
-       </div>
-       <div class="titulo">
-        <h1>Size</h1>
-        <p><%= pet.size %></p>
+      <h1>Listing pets</h1>
+      <div class="container pets-list">
+        <% @pets.each do |pet| %>
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">
+                Breed: <%= pet.breed %>
+              </div>
+              <div class="card-text">
+                Size: <%= pet.size %>
+              </div>
+              <div class="btn-group btn-group-toggle">
+                <%= link_to 'Show', pet_path(pet), class: "btn btn-secondary btn-sm" %>
+                <%= link_to 'Edit', edit_pet_path(pet), class: "btn btn-secondary btn-sm" %>
+                <%= link_to 'Destroy', pet_path(pet),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' }, class: "btn btn-secondary btn-sm" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
-      <%= link_to 'Show', pet_path(pet) %>
-      <%= link_to 'Edit', edit_pet_path(pet) %>
-      <%= link_to 'Destroy', pet_path(pet),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-    </div>
+      <p>Have you found a lost pet? <%= link_to 'Post here', new_pet_path %> </p>
 
-  <% end %>
-
-  <p>Have you found a lost pet? <%= link_to 'Post here', new_pet_path %> </p>
-
+  </div>
+</div>
