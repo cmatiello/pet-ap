@@ -1,5 +1,6 @@
 class Pet < ApplicationRecord
   has_one_attached :picture
+
   validates :breed, presence: true,
                       length: { minimum: 3 }
 
@@ -8,4 +9,5 @@ class Pet < ApplicationRecord
 
   validates :phone, presence: true,
                       length: { minimum: 3 }
+
 end
