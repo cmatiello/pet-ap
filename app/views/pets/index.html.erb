@@ -1,16 +1,25 @@
 <div class="container-fluid">
   <div class="col-10">
-
-      <h1>Listing pets</h1>
+      <div class="info">
+        <h3>Esses são todos os pets encontrados</h3>
+        <p>Se tiver qualquer informação sobre os donos desses animais entre em contato</p>
+      </div>
       <div class="container pets-list">
         <% @pets.each do |pet| %>
           <div class="card">
+            <% if pet.picture.attached? %>
+              <%= image_tag url_for(pet.picture), alt: "pet", class: "card-img-top" %>
+            <% else %>
+              <%= image_tag "/images/pet.png", alt: "pet", class: "card-img-top" %>
+            <% end %>
             <div class="card-body">
-              <div class="card-title">
-                Breed: <%= pet.breed %>
-              </div>
-              <div class="card-text">
-                Size: <%= pet.size %>
+              <div>
+                <div class="card-title">
+                  Breed: <%= pet.breed %>
+                </div>
+                <div class="card-text">
+                  Size: <%= pet.size %>
+                </div>
               </div>
               <div class="btn-group btn-group-toggle">
                 <%= link_to 'Show', pet_path(pet), class: "btn btn-secondary btn-sm" %>
