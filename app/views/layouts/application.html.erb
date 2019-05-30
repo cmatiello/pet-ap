@@ -12,8 +12,12 @@
 <body>
   <nav class="navbar navbar-dark bg-dark">
     <%= link_to 'Pet-Ap', pets_path %>
+    <%= link_to 'Pets encontrados', pets_path %>
+    <%= link_to 'Cadastre', new_pet_path %>
   </nav>
-  <%= yield %>
+  <main>
+    <%= yield %>
+  </main>
   <footer>
     <div class="footer-text">
       <span>Rails Girls 2019</span>

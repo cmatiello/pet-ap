@@ -1,6 +1,9 @@
 nav {
+  justify-content: flex-start !important;
+
   a {
     color: white;
+    margin: 1vh 3vw 0 0;
   }
   a:hover {
     color: white;
@@ -8,8 +11,12 @@ nav {
   }
 }
 
+.info {
+  margin: 3vh 2vw;
+}
+
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 60px;

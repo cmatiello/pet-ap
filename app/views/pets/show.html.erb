@@ -1,15 +1,18 @@
 <div class="container-fluid show">
   <div class="col-10">
       <div class="card">
-        <div class="card-header">
-          Pet
-        </div>
+        <% if @pet.picture.attached? %>
+          <%= image_tag url_for(@pet.picture), alt: "pet", class: "card-img-top" %>
+        <% else %>
+          <%= image_tag "/images/pet.png", alt: "pet", class: "card-img-top" %>
+        <% end %>
         <div class="card-body">
-          <div class="card-title">
+          <div>
+            <div class="card-title">
             Tutor:
             <%= @pet.tutor %>
-          </div>
-          <div class="card-text">
+            </div>
+            <div class="card-text">
             Phone: <%= @pet.phone %>
             <br>
             Breed: <%= @pet.breed %>
@@ -17,6 +20,7 @@
             Size: <%= @pet.size %>
             <br>
             Description: <%= @pet.description %>
+            </div>
           </div>
           <div class="form-buttons">
             <%= link_to 'Back', pets_path, class: "btn btn-secondary" %>

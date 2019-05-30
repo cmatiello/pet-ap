@@ -1,44 +1,66 @@
-<div class="container-fluid">
+<div class="container-fluid edit">
  <div class="col-10">
-    <h1>Novo Pet encontrado</h1>
-    <%= form_with(model: @pet, local: true) do |form| %>
-      <% if @pet.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(@pet.errors.count, "error") %> prohibited
-            this pet from being saved:
-          </h2>
-          <ul>
-            <% @pet.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+    <div class="info">
+      <h1>Edite este cadastro</h1>
+    </div>
+    <div class="container">
+      <%= form_with(model: @pet, local: true) do |form| %>
+        <% if @pet.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@pet.errors.count, "error") %> prohibited
+              this pet from being saved:
+            </h2>
+            <ul>
+              <% @pet.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
         <div class="form-group">
-          <%= form.label :tutor %><br>
-          <%= form.text_field :tutor, class: "form-control" %>
+          <div class="input-group">
+            <div class="custom-file">
+              <%= form.label "Pet picture", class: "custom-file-label" %>
+              <%= form.file_field :picture, class: "custom-file-input" %>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <%= form.label :phone %><br>
-          <%= form.text_field :phone, class: "form-control" %>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <%= form.text_field :tutor, class: "form-control", placeholder: 'Tutor' %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= form.text_field :phone, class: "form-control", placeholder: 'Telephone' %>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <%= form.label :breed %><br>
-          <%= form.text_field :breed, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= form.label :size %><br>
-          <%= form.text_field :size, class: "form-control" %>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <%= form.label :breed %><br>
+              <%= form.text_field :breed, class: "form-control", placeholder: 'Breed' %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= form.label :size %><br>
+              <%= form.text_field :size, class: "form-control", placeholder: 'Description' %>
+            </div>
+          </div>
         </div>
         <div class="form-group">
           <%= form.label :description %><br>
-          <%= form.text_area :description, class: "form-control" %>
+          <%= form.text_area :description, class: "form-control"  %>
         </div>
         <div class="form-buttons">
           <%= link_to 'Voltar', pets_path, class: "btn btn-secondary" %>
           <%= form.submit 'Salvar', class: "btn btn-primary" %>
         </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
