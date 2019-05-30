@@ -1,11 +1,7 @@
 <div class="container-fluid show">
   <div class="col-10">
       <div class="card">
-        <% if @pet.picture.attached? %>
-          <%= image_tag url_for(@pet.picture), alt: "pet", class: "card-img-top" %>
-        <% else %>
-          <%= image_tag "/images/pet.png", alt: "pet", class: "card-img-top" %>
-        <% end %>
+        <%= image_tag check_picture(@pet), alt: "pet", class: "card-img-top" %>
         <div class="card-body">
           <div>
             <div class="card-title">
